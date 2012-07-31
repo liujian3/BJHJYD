@@ -6,4 +6,25 @@
     android:orientation="vertical"
     android:theme="@style/notitle" >
 
+    <Spinner
+        android:id="@+id/spdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="13" >
+
+        <requestFocus />
+    </EditText>
+    <Button
+        android:id="@+id/btncommit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
 </LinearLayout>
