@@ -29,6 +29,8 @@ import org.apache.http.util.EntityUtils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -77,6 +79,17 @@ public class BJHJYDActivity extends Activity {
     	aaDate = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,alDate);
     	aaDate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     	spDate.setAdapter(aaDate);
+    	/*
+    	Editor sharedata = getSharedPreferences("data", 0).edit();
+    	sharedata.putString("n","2");
+    	sharedata.putString("1","2055100624399");
+    	sharedata.putString("2","3777100436386");
+    	sharedata.commit();*/
+    	SharedPreferences sharedata = getSharedPreferences("data", 0);
+    	String data = sharedata.getString("1", null);
+    	Log.v("cola","data="+data);
+    	
+    	etCode.setText(data);
     	
     	btnCommit.setOnClickListener(new Button.OnClickListener()
     	{
@@ -87,7 +100,7 @@ public class BJHJYDActivity extends Activity {
     			{
     				msg = "«Î—°‘Ò‘¬∑›";
     			}
-    			if(spDate.getCount()==0 || etCode.getText().length()==0)
+    			else if(etCode.getText().length()==0)
     			{
     				msg = "«ÎÃÓ–¥…Í«Î∫≈";
     			}
